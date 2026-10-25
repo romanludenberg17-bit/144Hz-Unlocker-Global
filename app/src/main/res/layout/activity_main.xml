@@ -6,9 +6,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_liquid">
 
-    <View android:layout_width="180dp" android:layout_height="180dp" android:layout_gravity="top|end" android:layout_marginTop="64dp" android:layout_marginEnd="-40dp" android:background="@drawable/glass_orb" />
-    <View android:layout_width="220dp" android:layout_height="220dp" android:layout_gravity="bottom|start" android:layout_marginBottom="90dp" android:layout_marginStart="-80dp" android:background="@drawable/glass_orb" />
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,7 +18,7 @@
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/app_name" android:textColor="#FFFFFFFF" android:textSize="31sp" android:textStyle="bold" />
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="@string/subtitle" android:textColor="#A8B0C2" android:textSize="14sp" />
                 </LinearLayout>
-                <com.google.android.material.button.MaterialButton android:id="@+id/telegram_button" android:layout_width="wrap_content" android:layout_height="48dp" android:text="@string/telegram" android:textAllCaps="false" android:textColor="#FFFFFF" app:backgroundTint="#22A6F2" app:cornerRadius="24dp" app:icon="@drawable/ic_telegram" app:iconTint="#FFFFFF" />
+                <com.google.android.material.button.MaterialButton android:id="@+id/telegram_button" android:layout_width="wrap_content" android:layout_height="48dp" android:text="@string/telegram" android:textAllCaps="false" android:textColor="#FFFFFF" app:backgroundTint="#7C5CFF" app:cornerRadius="24dp" app:icon="@drawable/ic_telegram" app:iconTint="#FFFFFF" />
             </LinearLayout>
 
             <com.google.android.material.card.MaterialCardView android:id="@+id/glass_card" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="28dp" app:cardBackgroundColor="#18FFFFFF" app:cardCornerRadius="36dp" app:cardElevation="0dp" app:strokeColor="#42FFFFFF" app:strokeWidth="1dp">
@@ -30,8 +27,8 @@
                     <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="7dp" android:text="@string/fps_description" android:textColor="#A8B0C2" android:textSize="14sp" />
                     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="28dp" android:gravity="center_vertical" android:orientation="horizontal">
                         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
-                            <TextView android:id="@+id/status_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold" />
-                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:text="@string/peak_rate" android:textColor="#7F899D" android:textSize="13sp" />
+                            <TextView android:id="@+id/status_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#7C5CFF" android:textSize="22sp" android:textStyle="bold" />
+                            <TextView android:id="@+id/peak_rate_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:text="@string/peak_rate" android:textColor="#7F899D" android:textSize="13sp" />
                         </LinearLayout>
                         <com.google.android.material.materialswitch.MaterialSwitch android:id="@+id/fps_switch" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="64dp" android:minHeight="48dp" />
                     </LinearLayout>
@@ -40,8 +37,28 @@
 
             <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" app:cardBackgroundColor="#12FFFFFF" app:cardCornerRadius="28dp" app:cardElevation="0dp" app:strokeColor="#26FFFFFF" app:strokeWidth="1dp">
                 <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="22dp">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/liquid_title" android:textColor="#FFFFFF" android:textSize="16sp" android:textStyle="bold" />
-                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="@string/liquid_description" android:textColor="#8993A8" android:textSize="13sp" />
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/overlay_title" android:textColor="#FFFFFF" android:textSize="16sp" android:textStyle="bold" />
+                            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="@string/overlay_description" android:textColor="#8993A8" android:textSize="13sp" />
+                        </LinearLayout>
+                        <com.google.android.material.materialswitch.MaterialSwitch android:id="@+id/overlay_switch" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" app:cardBackgroundColor="#12FFFFFF" app:cardCornerRadius="28dp" app:cardElevation="0dp" app:strokeColor="#26FFFFFF" app:strokeWidth="1dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="22dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/accent_title" android:textColor="#FFFFFF" android:textSize="16sp" android:textStyle="bold" />
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="@string/accent_description" android:textColor="#8993A8" android:textSize="13sp" />
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:gravity="center_vertical" android:orientation="horizontal">
+                        <com.google.android.material.button.MaterialButton android:id="@+id/accent_1" android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1" android:contentDescription="purple" app:backgroundTint="#7C5CFF" app:cornerRadius="22dp" />
+                        <com.google.android.material.button.MaterialButton android:id="@+id/accent_2" android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1" android:layout_marginStart="8dp" android:contentDescription="cyan" app:backgroundTint="#00BCD4" app:cornerRadius="22dp" />
+                        <com.google.android.material.button.MaterialButton android:id="@+id/accent_3" android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1" android:layout_marginStart="8dp" android:contentDescription="green" app:backgroundTint="#4CAF50" app:cornerRadius="22dp" />
+                        <com.google.android.material.button.MaterialButton android:id="@+id/accent_4" android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1" android:layout_marginStart="8dp" android:contentDescription="orange" app:backgroundTint="#FF9800" app:cornerRadius="22dp" />
+                        <com.google.android.material.button.MaterialButton android:id="@+id/accent_5" android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1" android:layout_marginStart="8dp" android:contentDescription="red" app:backgroundTint="#F44336" app:cornerRadius="22dp" />
+                        <com.google.android.material.button.MaterialButton android:id="@+id/accent_6" android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1" android:layout_marginStart="8dp" android:contentDescription="pink" app:backgroundTint="#E91E63" app:cornerRadius="22dp" />
+                    </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
