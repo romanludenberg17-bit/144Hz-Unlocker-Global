@@ -32,6 +32,11 @@ jobs:
 
       - name: setup android sdk
         uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools'
+
+      - name: accept android sdk licenses
+        run: yes | sdkmanager --licenses || true
 
       - name: install android 36 sdk
         run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
