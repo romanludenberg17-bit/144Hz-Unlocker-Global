@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">144Hz Unlocker</string>
+    <string name="subtitle">amoled · liquid glass</string>
+    <string name="telegram">telegram</string>
+    <string name="fps_unlock_title">144 Hz system unlock</string>
+    <string name="fps_description">снимает ограничение OriginOS для приложений, которые поддерживают высокий refresh rate.</string>
+    <string name="status_enabled">144 Hz enabled</string>
+    <string name="status_disabled">up to 120 Hz</string>
+    <string name="peak_rate">peak refresh rate</string>
+    <string name="liquid_title">liquid glass motion</string>
+    <string name="liquid_description">мягкие spring-переходы, прозрачные поверхности и живой отклик переключателя.</string>
+    <string name="source">open source · github</string>
+    <string name="license_note">based on VivoIQOO144FPSUnlocker · modified for this project · GPL-3.0</string>
+    <string name="write_error">не удалось изменить системную настройку</string>
+</resources>
