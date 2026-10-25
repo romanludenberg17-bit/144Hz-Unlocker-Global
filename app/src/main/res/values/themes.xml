@@ -1,0 +1,12 @@
+<resources>
+    <style name="Theme.Unlocker" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">#020204</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="colorPrimary">#D7E2FF</item>
+        <item name="colorSecondary">#8ED8FF</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>
