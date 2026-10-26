@@ -14,4 +14,5 @@
     <string name="source">open source · github</string>
     <string name="license_note">based on VivoIQOO144FPSUnlocker · modified for this project · GPL-3.0</string>
     <string name="write_error">не удалось изменить системную настройку. на некоторых версиях OriginOS доступ к этому ключу требует ADB/root.</string>
+    <string name="rommy_signature">Rommy©</string>
 </resources>
