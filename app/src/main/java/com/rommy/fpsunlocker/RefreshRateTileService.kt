@@ -9,7 +9,9 @@ import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
 
 class RefreshRateTileService : TileService() {
-    private val key = "gamecube_frame_interpolation_for_sr"
+    private val legacyKey = "gamecube_frame_interpolation_for_sr"
+    private val peakKey = "peak_refresh_rate"
+    private val minKey = "min_refresh_rate"
     private val enabledValue = "1:1:1:72:144"
     private val disabledValue = "0:-1:0:0:0"
 
@@ -35,19 +37,54 @@ class RefreshRateTileService : TileService() {
             return
         }
 
-        val enable = !isEnabled()
-        val value = if (enable) enabledValue else disabledValue
-        val written = Settings.System.putString(contentResolver, key, value)
-        val actual = Settings.System.getString(contentResolver, key)
-        if (!written || actual != value) {
-            updateTile()
-            return
+        try {
+            if (isEnabled()) {
+                safePut(peakKey, "0")
+                safePut(minKey, "0")
+                safePut(legacyKey, disabledValue)
+            } else {
+                // Use both OriginOS mechanisms. If one is rejected, still try the other.
+                var modernOk = false
+                var legacyOk = false
+                try {
+                    safePut(peakKey, "144.0")
+                    safePut(minKey, "144.0")
+                    modernOk = safeGet(peakKey) == "144.0" && safeGet(minKey) == "144.0"
+                } catch (_: SecurityException) {
+                } catch (_: RuntimeException) {
+                }
+                try {
+                    safePut(legacyKey, enabledValue)
+                    legacyOk = safeGet(legacyKey) == enabledValue
+                } catch (_: SecurityException) {
+                } catch (_: RuntimeException) {
+                }
+
+                if (!modernOk && !legacyOk) return
+            }
+        } catch (_: SecurityException) {
+        } catch (_: RuntimeException) {
         }
+
         updateTile()
     }
 
+    private fun safeGet(key: String): String? =
+        try {
+            Settings.System.getString(contentResolver, key)
+        } catch (_: SecurityException) {
+            null
+        } catch (_: RuntimeException) {
+            null
+        }
+
+    private fun safePut(key: String, value: String) {
+        val written = Settings.System.putString(contentResolver, key, value)
+        if (!written) throw IllegalStateException("Settings provider rejected $key")
+    }
+
     private fun isEnabled(): Boolean =
-        Settings.System.getString(contentResolver, key) == enabledValue
+        (safeGet(peakKey) == "144.0" && safeGet(minKey) == "144.0") || safeGet(legacyKey) == enabledValue
 
     private fun updateTile() {
         val tile = qsTile ?: return
