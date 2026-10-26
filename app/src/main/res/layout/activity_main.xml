@@ -64,6 +64,7 @@
 
             <com.google.android.material.button.MaterialButton android:id="@+id/github_button" android:layout_width="match_parent" android:layout_height="54dp" android:layout_marginTop="18dp" android:text="@string/source" android:textAllCaps="false" android:textColor="#FFFFFF" app:backgroundTint="#18FFFFFF" app:cornerRadius="27dp" app:strokeColor="#35FFFFFF" app:strokeWidth="1dp" />
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:gravity="center" android:text="@string/license_note" android:textColor="#596378" android:textSize="11sp" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:gravity="center" android:text="@string/rommy_signature" android:textColor="#343947" android:textSize="8sp" />
         </LinearLayout>
     </ScrollView>
 </FrameLayout>
